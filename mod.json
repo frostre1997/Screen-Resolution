@@ -1,0 +1,21 @@
+{
+	"geode": "v3.0.0-beta.1",
+	"id": "unfl4me.screen_resolution",
+	"version": "1.0.0",
+	"name": "Screen Resolution",
+	"developer": "unfl4me",
+	"description": "Cleanly modifies the game resolution and scaling policy on Android.",
+	"settings": {
+		"resolution-mode": {
+			"name": "Scaling Mode",
+			"description": "Choose how the game adapts to your screen aspect ratio.",
+			"type": "selection",
+			"default": 0,
+			"settings": [
+				"Show All (Black Bars - Recommended)",
+				"Exact Fit (Stretched)",
+				"No Border (Cropped)"
+			]
+		}
+	}
+}
