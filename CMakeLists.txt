@@ -5,7 +5,7 @@ include(FetchContent)
 FetchContent_Declare(
     GeodeMod
     GIT_REPOSITORY https://github.com/geode-sdk/cmake.git
-    GIT_TAG v3.0.0-beta.1
+    GIT_TAG main
 )
 FetchContent_MakeAvailable(GeodeMod)
 
