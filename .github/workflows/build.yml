@@ -15,10 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clone Geode CMake Framework
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh repo clone geode-sdk/cmake geode-cmake
+      - name: Download Geode CMake Framework
+        run: |
+          curl -L https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip -o cmake.zip
+          unzip cmake.zip
+          mv cmake-main geode-cmake
 
       - name: Compile Geode Mod
         uses: geode-sdk/build-geode-mod@main
