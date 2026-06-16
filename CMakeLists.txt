@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.24)
 
-# Scarica il framework di Geode direttamente via URL ZIP
-# Questo evita del tutto i blocchi di sicurezza e i bug di Git su GitHub Actions
+# Scarica il framework di Geode usando l'URL corretto (branch master)
 include(FetchContent)
 FetchContent_Declare(
     GeodeMod
-    URL https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip
+    URL https://github.com/geode-sdk/cmake/archive/refs/heads/master.zip
 )
 FetchContent_MakeAvailable(GeodeMod)
 
