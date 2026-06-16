@@ -19,4 +19,3 @@ target_sources(screen_resolution PRIVATE src/main.cpp)
 
 # Setup dependencies (matching your mod.json)
 setup_geode_mod_dependencies(screen_resolution)
-
