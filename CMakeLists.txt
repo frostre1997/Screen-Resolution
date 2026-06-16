@@ -1,24 +1,13 @@
 cmake_minimum_required(VERSION 3.24)
 
-# Se siamo su GitHub Actions, l'SDK è già pronto sul server. Lo carichiamo da lì.
-if(NOT DEFINED GEODE_SDK)
-    if(DEFINED ENV{GEODE_SDK})
-        set(GEODE_SDK $ENV{GEODE_SDK})
-    endif()
-endif()
-
-if(NOT DEFINED GEODE_SDK)
-    include(FetchContent)
-    FetchContent_Declare(
-        GeodeMod
-        GIT_REPOSITORY https://github.com/geode-sdk/cmake.git
-        GIT_TAG main
-    )
-    FetchContent_MakeAvailable(GeodeMod)
-else()
-    list(APPEND CMAKE_MODULE_PATH "${GEODE_SDK}/cmake")
-    include(GeodeMod)
-endif()
+# Scarica il framework di Geode direttamente via URL ZIP
+# Questo evita del tutto i blocchi di sicurezza e i bug di Git su GitHub Actions
+include(FetchContent)
+FetchContent_Declare(
+    GeodeMod
+    URL https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip
+)
+FetchContent_MakeAvailable(GeodeMod)
 
 # Definisce il progetto della mod
 project(screen_resolution VERSION 1.0.0 LANGUAGES CXX)
