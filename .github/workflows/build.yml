@@ -15,12 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download Geode CMake Framework
-        run: |
-          curl -L https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip -o cmake.zip
-          unzip cmake.zip
-          mv cmake-main geode-cmake
-
       - name: Compile Geode Mod
         uses: geode-sdk/build-geode-mod@main
         with:
