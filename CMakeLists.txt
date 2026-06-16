@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.24)
 
-# Set up the Geode CMake framework
+# Set up the Geode CMake framework via direct ZIP download (bypasses Git auth bugs)
 include(FetchContent)
 FetchContent_Declare(
     GeodeMod
-    GIT_REPOSITORY https://github.com/geode-sdk/cmake.git
-    GIT_TAG main
+    URL https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip
 )
 FetchContent_MakeAvailable(GeodeMod)
 
