@@ -1,11 +1,25 @@
-    steps:
-      - uses: actions/checkout@v4
+name: Build Mod
 
-      # AGGIUNGI QUESTO BLOCCO QUI SOTTO:
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android 64-bit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Clone Geode CMake Framework
         run: git clone https://github.com/geode-sdk/cmake.git geode-cmake
 
-      - uses: geode-sdk/build-geode-mod@main
+      - name: Compile Geode Mod
+        uses: geode-sdk/build-geode-mod@main
         with:
           target: Android64
           
