@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.24)
 
-# Set up the Geode CMake framework via direct ZIP download (bypasses Git auth bugs)
+# Legge il framework di Geode dalla cartella locale pre-scaricata dal workflow
 include(FetchContent)
 FetchContent_Declare(
     GeodeMod
-    URL https://github.com/geode-sdk/cmake/archive/refs/heads/main.zip
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/geode-cmake
 )
 FetchContent_MakeAvailable(GeodeMod)
 
@@ -19,3 +19,4 @@ target_sources(screen_resolution PRIVATE src/main.cpp)
 
 # Setup dependencies (matching your mod.json)
 setup_geode_mod_dependencies(screen_resolution)
+
