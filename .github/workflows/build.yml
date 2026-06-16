@@ -7,12 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [android64] # Fondamentale per Android
     steps:
       - uses: actions/checkout@v4
       - uses: geode-sdk/build-geode-mod@main
         with:
-          platform: ${{ matrix.platform }}
+          target: android
           
