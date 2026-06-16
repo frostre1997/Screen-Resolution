@@ -1,22 +1,18 @@
-name: Build Mod
-
+name: Build
 on:
   push:
-    branches:
-      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build Android 64-bit
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        platform: [android64] # Fondamentale per Android
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Compile Geode Mod
-        uses: geode-sdk/build-geode-mod@main
+      - uses: actions/checkout@v4
+      - uses: geode-sdk/build-geode-mod@main
         with:
-          target: Android64
+          platform: ${{ matrix.platform }}
           
